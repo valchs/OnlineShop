@@ -1,7 +1,20 @@
 ﻿@page "/"
-
-<h1>Hello, world!</h1>
-
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?" />
+<MudContainer Class="mt-16 px-8 mobile-container" MaxWidth="MaxWidth.False">
+    <MudCarousel Style="height:500px;" ShowArrows="true" ShowDelimiters="true" AutoCycle="true" TData="object">
+        <MudCarouselItem Transition="Transition.Slide" Color="@Color.Primary">
+            <div class="d-flex" style="height:100%">
+                <img src="Assets/paint1.jpg" alt="Girl in a jacket" style="width: 100%;">
+            </div>
+        </MudCarouselItem>
+        <MudCarouselItem Transition="Transition.Slide" Color="@Color.Secondary">
+            <div class="d-flex" style="height:100%">
+                <img src="Assets/paint2.jpg" alt="Girl in a jacket" style="width: 100%;">
+            </div>
+        </MudCarouselItem>
+        <MudCarouselItem Transition="Transition.Slide">
+            <div class="d-flex" style="height:100%">
+                <img src="Assets/paint3.jpg" alt="Girl in a jacket" style="width: 100%;">
+            </div>
+        </MudCarouselItem>
+    </MudCarousel>
+</MudContainer>

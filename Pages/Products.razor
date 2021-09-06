@@ -1,0 +1,14 @@
+﻿@page "/products"
+
+@using OnlineShop.Components.Products
+
+<MudContainer Class="mt-16 px-8 mobile-container" MaxWidth="MaxWidth.False" Style="min-height:80vh;">
+    <MudGrid>
+        @foreach (var product in ProductList)
+        {
+            <MudItem xs="12" sm="6" md="4">
+                <Product ProductModel="product"/>
+            </MudItem>
+        }
+    </MudGrid>
+</MudContainer>
