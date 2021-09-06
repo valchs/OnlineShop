@@ -1,0 +1,36 @@
+﻿<AuthorizeView>
+    <Authorized>
+        <MudHidden Breakpoint="Breakpoint.Xs">
+            <NavLink class="text-white nav-link" href="Identity/Account/Manage">
+                <MudText Class="white-text text-accent-3 pa-4">Hi, @context.User.Identity.Name!</MudText>
+            </NavLink>
+        </MudHidden>
+        <MudHidden Breakpoint="Breakpoint.SmAndUp">
+            <NavLink class="text-white nav-link" href="Identity/Account/Manage">
+                <MudText Class="white-text text-accent-3 pa-4">Manage account</MudText>
+            </NavLink>
+        </MudHidden>
+        <form method="post" action="Identity/Account/LogOut">
+            <MudButton Variant="Variant.Filled"
+                       Color="Color.Primary"
+                       Class="ma-2"
+                       ButtonType="ButtonType.Submit">
+                Log out
+            </MudButton>
+        </form>
+    </Authorized>
+    <NotAuthorized>
+        <MudButton Link="Identity/Account/Register"
+                   Variant="Variant.Filled"
+                   Color="Color.Primary"
+                   Class="ma-2">
+            Register
+        </MudButton>
+        <MudButton Link="Identity/Account/Login"
+                   Variant="Variant.Filled"
+                   Color="Color.Primary"
+                   Class="ma-2">
+            Login
+        </MudButton>
+    </NotAuthorized>
+</AuthorizeView>
