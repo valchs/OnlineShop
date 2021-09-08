@@ -7,8 +7,9 @@
         @foreach (var product in ProductList)
         {
             <MudItem xs="12" sm="6" md="4">
-                <Product ProductModel="product"/>
+                <Product ProductModel="product" />
             </MudItem>
         }
     </MudGrid>
+    <MudButton Variant="Variant.Filled" OnClick="AddProduct">Add</MudButton>
 </MudContainer>

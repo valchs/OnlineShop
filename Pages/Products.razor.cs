@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
+using OnlineShopLibrary.DataAccess;
 using OnlineShopLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -9,7 +11,11 @@ namespace OnlineShop.Pages
 {
     public partial class Products : ComponentBase
     {
+        [Inject] public ProductData _db { get; set; }
+        [CascadingParameter]
+        private Task<AuthenticationState> _authState { get; set; }
         public List<ProductModel> ProductList { get; set; } = new();
+        private AuthenticationState authState;
 
         protected override void OnInitialized()
         {
@@ -23,6 +29,18 @@ namespace OnlineShop.Pages
                 };
                 ProductList.Add(product);
             }
+        }
+
+        async Task AddProduct()
+        {
+            authState = await _authState;
+            var product = new ProductModel
+            {
+                Title = "Produkts",
+                Description = "Apraksts",
+                UserId = authState.User.Claims.ToList()[0].Value
+            };
+            var productId = _db.SaveProduct(product);
         }
     }
 }
