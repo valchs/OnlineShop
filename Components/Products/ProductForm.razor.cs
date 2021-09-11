@@ -19,9 +19,9 @@ namespace OnlineShop.Components.Products
 
         protected override void OnInitialized()
         {
-            CboPaths.Add("Assets/paint1.jpg");
-            CboPaths.Add("Assets/paint2.jpg");
-            CboPaths.Add("Assets/paint3.jpg");
+            CboPaths.Add("Assets/computer.png");
+            CboPaths.Add("Assets/camera.jpg");
+            CboPaths.Add("Assets/iphone.jpg");
         }
 
         private async Task OnValidSubmit(EditContext context)

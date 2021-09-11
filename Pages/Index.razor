@@ -1,20 +1,14 @@
 ﻿@page "/"
-<MudContainer Class="mt-16 px-8 mobile-container" MaxWidth="MaxWidth.False">
-    <MudCarousel Style="height:500px;" ShowArrows="true" ShowDelimiters="true" AutoCycle="true" TData="object">
-        <MudCarouselItem Transition="Transition.Slide" Color="@Color.Primary">
-            <div class="d-flex" style="height:100%">
-                <img src="Assets/paint1.jpg" alt="Girl in a jacket" style="width: 100%;">
-            </div>
+<MudContainer Class="mt-16 px-8" MaxWidth="MaxWidth.False">
+    <MudCarousel Class="mx-auto carousel-container" ShowArrows="true" ShowDelimiters="true" AutoCycle="false" TData="object">
+        <MudCarouselItem Class="carousel-item" Transition="Transition.Slide" Color="@Color.Primary">
+                <img class="carousel-img" src="Assets/computer.jpg" alt="Girl in a jacket"/>
         </MudCarouselItem>
-        <MudCarouselItem Transition="Transition.Slide" Color="@Color.Secondary">
-            <div class="d-flex" style="height:100%">
-                <img src="Assets/paint2.jpg" alt="Girl in a jacket" style="width: 100%;">
-            </div>
+        <MudCarouselItem Class="carousel-item" Transition="Transition.Slide" Color="@Color.Secondary">
+                <img class="carousel-img" src="Assets/iphone.jpg" alt="sample"/>
         </MudCarouselItem>
-        <MudCarouselItem Transition="Transition.Slide">
-            <div class="d-flex" style="height:100%">
-                <img src="Assets/paint3.jpg" alt="Girl in a jacket" style="width: 100%;">
-            </div>
+        <MudCarouselItem Class="carousel-item" Transition="Transition.Slide">
+                <img class="carousel-img" src="Assets/camera.jpg" alt="Girl in a jacket"/>
         </MudCarouselItem>
     </MudCarousel>
 </MudContainer>
