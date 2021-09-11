@@ -15,7 +15,7 @@
         @foreach (var product in ProductList)
         {
             <MudItem xs="12" sm="6" md="4">
-                <Product ProductModel="product" OnDelete="@(() => ProductList = _db.GetProducts(authState.User.Claims.ToList()[0].Value))" />
+                <Product ProductModel="product" IsSeller="true" OnDelete="@(() => ProductList = _db.GetProducts(authState.User.Claims.ToList()[0].Value))" />
             </MudItem>
         }
     </MudGrid>

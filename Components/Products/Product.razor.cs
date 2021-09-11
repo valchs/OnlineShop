@@ -16,6 +16,7 @@ namespace OnlineShop.Components.Products
         [Inject] public ProductData _db { get; set; }
         [Parameter] public ProductModel ProductModel { get; set; }
         [Parameter] public EventCallback<string> OnDelete { get; set; }
+        [Parameter] public bool IsSeller { get; set; } = false;
 
         protected override async Task OnInitializedAsync()
         {
@@ -24,7 +25,7 @@ namespace OnlineShop.Components.Products
 
         async Task DeleteProduct()
         {
-            var result = await OpenDialog("Delete product", "Ok");
+            var result = await OpenDialog<ConfirmDialog>("Delete product", "Ok");
             
             if (!result.Cancelled)
             {
@@ -34,17 +35,9 @@ namespace OnlineShop.Components.Products
             }
         }
 
-        protected async Task<DialogResult> OpenDialog(string contentText, string buttonText = "Delete")
+        void ShowDetails()
         {
-            var parameters = new DialogParameters();
-            parameters.Add("ContentText", contentText);
-            parameters.Add("ButtonText", buttonText);
-            parameters.Add("Color", Color.Error);
-
-            var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
-
-            var dialog = DialogService.Show<ConfirmDialog>(contentText, parameters, options);
-            return await dialog.Result;
+            NavigationManager.NavigateTo("/productDetails/" + ProductModel.Id, forceLoad: true);
         }
     }
 }

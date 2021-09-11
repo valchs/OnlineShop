@@ -24,21 +24,8 @@ namespace OnlineShop.Pages
 
         async Task AddProduct()
         {
-            await OpenDialog("Add a new product", "Ok");
+            await OpenDialog<ProductDialog>("Add a new product", "Ok");
             ProductList = _db.GetProducts(authState.User.Claims.ToList()[0].Value);
-        }
-
-        protected async Task<DialogResult> OpenDialog(string contentText, string buttonText = "Delete")
-        {
-            var parameters = new DialogParameters();
-            parameters.Add("ContentText", contentText);
-            parameters.Add("ButtonText", buttonText);
-            parameters.Add("Color", Color.Error);
-
-            var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
-
-            var dialog = DialogService.Show<ProductDialog>(contentText, parameters, options);
-            return await dialog.Result;
         }
     }
 }

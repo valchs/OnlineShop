@@ -16,9 +16,17 @@ namespace OnlineShop.BusinessLogic
 		[CascadingParameter] public Task<AuthenticationState> _authState { get; set; }
 		public AuthenticationState authState;
 
-		public virtual void OpenDialog<T>() where T : ComponentBase
+		protected async Task<DialogResult> OpenDialog<T>(string contentText, string buttonText = "Delete") where T : ComponentBase
 		{
-			DialogService.Show<T>("Choose visible columns");
+			var parameters = new DialogParameters();
+			parameters.Add("ContentText", contentText);
+			parameters.Add("ButtonText", buttonText);
+			parameters.Add("Color", Color.Error);
+
+			var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
+
+			var dialog = DialogService.Show<T>(contentText, parameters, options);
+			return await dialog.Result;
 		}
 
 		public void ShowSnackbar(string message, string position)

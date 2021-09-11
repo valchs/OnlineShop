@@ -9,7 +9,10 @@
         <MudText Typo="Typo.body2">@ProductModel.Description</MudText>
     </MudCardContent>
     <MudCardActions>
-        <MudButton Variant="Variant.Text" Color="Color.Error" OnClick="@DeleteProduct" Class="ml-auto">Delete</MudButton>
-        <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
+        @if (IsSeller)
+        {
+            <MudButton Variant="Variant.Text" Color="Color.Error" OnClick="@DeleteProduct" Class="ml-auto">Delete</MudButton>
+        }
+        <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="ShowDetails">Learn More</MudButton>
     </MudCardActions>
 </MudCard>

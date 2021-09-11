@@ -9,11 +9,9 @@
     <MudGrid>
         @foreach (var product in ProductList)
         {
-            <MudItem xs="12" sm="6" md="4">
+            <MudItem xs="12" sm="6" md="4" @onclick="@(() => ShowDetails(product))">
                 <Product ProductModel="product" />
             </MudItem>
         }
     </MudGrid>
-    <MudButton Variant="Variant.Filled" OnClick="AddProduct">Add</MudButton>
-    <MudButton Variant="Variant.Filled" OnClick="clicked">Open dialog</MudButton>
 </MudContainer>

@@ -1,14 +1,15 @@
 ﻿@page "/"
-<MudContainer Class="mt-16 px-8" MaxWidth="MaxWidth.False">
-    <MudCarousel Class="mx-auto carousel-container" ShowArrows="true" ShowDelimiters="true" AutoCycle="false" TData="object">
+<MudContainer MaxWidth="MaxWidth.False">
+    <MudText Class="mt-5 mb-3" Typo="Typo.h3" Align="Align.Center">Online Shop</MudText>
+    <MudCarousel Class="mx-auto carousel-container" ShowArrows="true" ShowDelimiters="true" AutoCycle="true" TData="object">
         <MudCarouselItem Class="carousel-item" Transition="Transition.Slide" Color="@Color.Primary">
-                <img class="carousel-img" src="Assets/computer.jpg" alt="Girl in a jacket"/>
+            <img class="carousel-img" src="Assets/computer.jpg" alt="Girl in a jacket" />
         </MudCarouselItem>
         <MudCarouselItem Class="carousel-item" Transition="Transition.Slide" Color="@Color.Secondary">
-                <img class="carousel-img" src="Assets/iphone.jpg" alt="sample"/>
+            <img class="carousel-img" src="Assets/iphone.jpg" alt="sample" />
         </MudCarouselItem>
         <MudCarouselItem Class="carousel-item" Transition="Transition.Slide">
-                <img class="carousel-img" src="Assets/camera.jpg" alt="Girl in a jacket"/>
+            <img class="carousel-img" src="Assets/camera.jpg" alt="Girl in a jacket" />
         </MudCarouselItem>
     </MudCarousel>
 </MudContainer>
