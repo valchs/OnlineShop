@@ -1,13 +1,22 @@
 ﻿@page "/seller"
 
 @using OnlineShop.BusinessLogic
+@using OnlineShop.Components.Products
 
 @inherits ShopBase  
 
-<h3>Seller</h3>
+<h3>My products</h3>
 
-<MudButton Variant="Variant.Filled" OnClick="clicked">Open dialog</MudButton>
-
-@code {
-
-}
+<MudContainer Class="mt-16 px-8 mobile-container" MaxWidth="MaxWidth.False" Style="min-height:80vh;">
+    <MudGrid>
+        <MudItem xs="12">
+            <MudButton Variant="Variant.Filled" OnClick="AddProduct">Add product</MudButton>
+        </MudItem>
+        @foreach (var product in ProductList)
+        {
+            <MudItem xs="12" sm="6" md="4">
+                <Product ProductModel="product" OnDelete="@(() => ProductList = _db.GetProducts(authState.User.Claims.ToList()[0].Value))" />
+            </MudItem>
+        }
+    </MudGrid>
+</MudContainer>

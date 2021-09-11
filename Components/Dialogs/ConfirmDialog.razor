@@ -1,21 +1,19 @@
 ﻿@using OnlineShop.BusinessLogic.Components
-@using OnlineShop.Components.Products
 
 @inherits ModalComponent
 
 <MudDialog Style="min-width: 250px;">
     <DialogContent>
-        <ProductForm OnSubmit="Submitted"/>
+        <MudText>@ContentText</MudText>
     </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="@Color" Variant="Variant.Filled" OnClick="Done">@ButtonText</MudButton>
+    </DialogActions>
 </MudDialog>
 
 @code {
     [Parameter] public string ContentText { get; set; }
     [Parameter] public string ButtonText { get; set; }
     [Parameter] public Color Color { get; set; }
-
-    void Submitted()
-    {
-        Done();
-    }
 }

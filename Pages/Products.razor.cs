@@ -15,10 +15,8 @@ namespace OnlineShop.Pages
     public partial class Products : ShopBase
     {
         [Inject] public ProductData _db { get; set; }
-        [CascadingParameter]
-        private Task<AuthenticationState> _authState { get; set; }
         public List<ProductModel> ProductList { get; set; } = new();
-        private AuthenticationState authState;
+
 
         protected override void OnInitialized()
         {

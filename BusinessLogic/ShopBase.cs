@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using MudBlazor;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,8 @@ namespace OnlineShop.BusinessLogic
 		[Inject] public ISnackbar Snackbar { get; set; }
 		[Inject] public IDialogService DialogService { get; set; }
 		[Inject] public NavigationManager NavigationManager { get; set; }
+		[CascadingParameter] public Task<AuthenticationState> _authState { get; set; }
+		public AuthenticationState authState;
 
 		public virtual void OpenDialog<T>() where T : ComponentBase
 		{

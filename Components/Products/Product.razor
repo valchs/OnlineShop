@@ -1,11 +1,15 @@
-﻿<MudCard>
+﻿@using OnlineShop.BusinessLogic
+
+@inherits ShopBase 
+
+<MudCard>
     <MudCardMedia Image="@ProductModel.ImagePath" Height="200" />
     <MudCardContent>
         <MudText Typo="Typo.h5">@ProductModel.Title</MudText>
         <MudText Typo="Typo.body2">@ProductModel.Description</MudText>
     </MudCardContent>
     <MudCardActions>
-        <MudButton Variant="Variant.Text" Color="Color.Primary">Share</MudButton>
+        <MudButton Variant="Variant.Text" Color="Color.Error" OnClick="@DeleteProduct" Class="ml-auto">Delete</MudButton>
         <MudButton Variant="Variant.Text" Color="Color.Primary">Learn More</MudButton>
     </MudCardActions>
 </MudCard>
