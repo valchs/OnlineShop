@@ -18,6 +18,7 @@
                 Log out
             </MudButton>
         </form>
+        <MudIconButton Icon="@Icons.Material.Filled.AccountCircle" Color="Color.Inherit" Edge="Edge.Start" OnClick="@UpdateDrawerEndOpen" />
     </Authorized>
     <NotAuthorized>
         <MudButton Link="Identity/Account/Register"
@@ -34,3 +35,17 @@
         </MudButton>
     </NotAuthorized>
 </AuthorizeView>
+
+@code {
+    [Parameter]
+    public bool DrawerEndOpen { get; set; }
+
+    [Parameter]
+    public EventCallback<bool> DrawerEndOpenChanged { get; set; }
+
+    async Task UpdateDrawerEndOpen()
+    {
+        DrawerEndOpen = !DrawerEndOpen;
+        await DrawerEndOpenChanged.InvokeAsync(DrawerEndOpen);
+    }
+}

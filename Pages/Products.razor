@@ -1,6 +1,9 @@
 ﻿@page "/products"
 
 @using OnlineShop.Components.Products
+@using OnlineShop.BusinessLogic
+
+@inherits ShopBase
 
 <MudContainer Class="mt-16 px-8 mobile-container" MaxWidth="MaxWidth.False" Style="min-height:80vh;">
     <MudGrid>
@@ -12,4 +15,5 @@
         }
     </MudGrid>
     <MudButton Variant="Variant.Filled" OnClick="AddProduct">Add</MudButton>
+    <MudButton Variant="Variant.Filled" OnClick="clicked">Open dialog</MudButton>
 </MudContainer>

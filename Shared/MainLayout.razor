@@ -5,10 +5,20 @@
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
         My Application
         <MudSpacer />
-        <LoginDisplay />
+        <LoginDisplay @bind-DrawerEndOpen="_drawerEndOpen" />
     </MudAppBar>
     <MudDrawer @bind-Open="@_drawerOpen">
-        <NavMenu/>
+        <NavMenu />
+    </MudDrawer>
+    <MudDrawer @bind-Open="@_drawerEndOpen" Anchor="Anchor.End" Elevation="3" Variant="@DrawerVariant.Temporary">
+        <MudDrawerHeader>
+            <MudText Typo="Typo.h6">Settings</MudText>
+        </MudDrawerHeader>
+        <MudNavMenu>
+            <MudNavLink Match="NavLinkMatch.All" Href="/seller" Icon="@Icons.Filled.AccountBox">My products</MudNavLink>
+            <MudNavLink Match="NavLinkMatch.All" Href="/b" Icon="@Icons.Filled.ShoppingCart">Orders</MudNavLink>
+            <MudNavLink Match="NavLinkMatch.All" Href="/c" Icon="@Icons.Filled.History">Order Historya</MudNavLink>
+        </MudNavMenu>
     </MudDrawer>
     <MudMainContent>
         <MudContainer MaxWidth="MaxWidth.ExtraLarge">
@@ -19,10 +29,16 @@
 
 @code {
     bool _drawerOpen = true;
+    bool _drawerEndOpen = false;
 
     void DrawerToggle()
     {
         _drawerOpen = !_drawerOpen;
+    }
+
+    void ToggleDrawerEnd(bool drawerEndOpen)
+    {
+        _drawerEndOpen = drawerEndOpen;
     }
 }
 
