@@ -11,15 +11,18 @@
                     <MudTextField @bind-Value="model.Title" For="@(() => model.Title)" Label="Title" />
                 </MudItem>
                 <MudItem xs="12">
-                    <MudTextField @bind-Value="model.Description" For="@(() => model.Description)" Label="Description" />
+                    <MudTextField @bind-Value="model.Description" For="@(() => model.Description)" Label="Description" Lines="2" />
                 </MudItem>
                 <MudItem xs="12">
                     <MudSelect T="string" Label="Image path" @bind-Value="model.ImagePath" For="@(() => model.ImagePath)">
                         @foreach (var item in CboPaths)
                         {
-                            <MudSelectItem Value="item"/>
+                            <MudSelectItem Value="item" />
                         }
                     </MudSelect>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudNumericField @bind-Value="model.Price" Label="Cena (Eur)" Variant="Variant.Text" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.AttachMoney" Step=".1M"/>
                 </MudItem>
             </MudGrid>
         </MudCardContent>

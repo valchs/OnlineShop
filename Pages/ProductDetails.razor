@@ -4,10 +4,40 @@
 
 @inherits ShopBase
 
-<MudContainer Class="mt-16 px-8">
+<MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="mt-6">
     <MudGrid>
-        <MudItem xs="12" sm="6" md="4">
-            @Id
+        <MudItem xs="12" md="8" lg="6">
+            <img class="carousel-img" src="@Product.ImagePath" alt="sample" />
+        </MudItem>
+        <MudItem xs="12" md="4" lg="6">
+            <MudText Class="mb-3" Typo="Typo.h3">@Product.Title</MudText>
+            <MudText Class="mb-3" Typo="Typo.body1">@Product.Description</MudText>
+            <MudGrid>
+                <MudItem lg="6" md="12" xs="6">
+                    <MudTextField @bind-Value="Product.Price" Label="Price" ReadOnly="true" Variant="Variant.Filled" Format="F2" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.AttachMoney" />
+                </MudItem>
+                <MudItem lg="6" md="12" xs="6">
+                    <MudNumericField @bind-Value="Product.Ammount" Label="Daudzums" Variant="Variant.Text" TextChanged="ValueChanged" />
+                </MudItem>
+                <MudHidden Breakpoint="Breakpoint.Md">
+                    <MudItem xs="8"></MudItem>
+                </MudHidden>
+                <MudHidden Breakpoint="Breakpoint.Md" Invert="true">
+                    <MudItem xs="6"></MudItem>
+                </MudHidden>
+                <MudItem Class="d-flex justify-end" lg="4" md="6" xs="4">
+                    <MudTextField @bind-Value="Product.Sum" Label="Sum" ReadOnly="true" Format="F2" Variant="Variant.Filled" />
+                </MudItem>
+                <MudHidden Breakpoint="Breakpoint.Md">
+                    <MudItem xs="10"></MudItem>
+                </MudHidden>
+                <MudHidden Breakpoint="Breakpoint.Md" Invert="true">
+                    <MudItem xs="8"></MudItem>
+                </MudHidden>
+                <MudItem Class="d-flex justify-end" lg="2" md="4" xs="2">
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary">Add</MudButton>
+                </MudItem>
+            </MudGrid>
         </MudItem>
     </MudGrid>
 </MudContainer>

@@ -17,6 +17,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using OnlineShopLibrary.DataAccess;
+using OnlineShop.Services;
 
 namespace OnlineShop
 {
@@ -45,6 +46,7 @@ namespace OnlineShop
             services.AddSingleton<WeatherForecastService>();
             services.AddMudServices();
             services.AddTransient<ProductData>();
+            services.AddScoped<AppState>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

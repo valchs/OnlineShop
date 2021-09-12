@@ -1,4 +1,7 @@
-﻿@inherits LayoutComponentBase
+﻿@using OnlineShop.Components.Products
+@using OnlineShopLibrary.Models
+
+@inherits LayoutComponentBase
 
 <MudLayout>
     <MudAppBar>
@@ -6,6 +9,15 @@
         Valters LLC
         <MudSpacer />
         <LoginDisplay @bind-DrawerEndOpen="_drawerEndOpen" />
+        <MudMenu Direction="Direction.Left" OffsetX="true" Dense="true" Class="mt-1 ml-4">
+            <ActivatorContent>
+                <MudIcon Icon="@Icons.Material.Filled.ShoppingBasket" Color="Color.Inherit" Title="Basket"></MudIcon>
+            </ActivatorContent>
+            <ChildContent>
+                <MudText Class="mx-2 my-2" Typo="Typo.subtitle2">Your ordered items:</MudText>
+                <BasketContent ProductList="products"></BasketContent>
+            </ChildContent>
+        </MudMenu>
     </MudAppBar>
     <MudDrawer @bind-Open="@_drawerOpen">
         <NavMenu />
@@ -30,6 +42,7 @@
 @code {
     bool _drawerOpen = true;
     bool _drawerEndOpen = false;
+    public List<ProductModel> products { get; set; } = new();
 
     void DrawerToggle()
     {
@@ -39,6 +52,16 @@
     void ToggleDrawerEnd(bool drawerEndOpen)
     {
         _drawerEndOpen = drawerEndOpen;
+    }
+
+    protected override void OnInitialized()
+    {
+        products.Add(new ProductModel
+        {
+            Id = 1,
+            Title = "nosaukums",
+            Description = "apraksts"
+        });
     }
 }
 
