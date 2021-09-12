@@ -1,15 +1,20 @@
 ﻿@page "/"
+
+@using OnlineShop.BusinessLogic
+
+@inherits ShopBase
+
 <MudContainer MaxWidth="MaxWidth.False">
     <MudText Class="mt-5 mb-3" Typo="Typo.h3" Align="Align.Center">Online Shop</MudText>
     <MudCarousel Class="mx-auto carousel-container" ShowArrows="true" ShowDelimiters="true" AutoCycle="true" TData="object">
-        <MudCarouselItem Class="carousel-item" Transition="Transition.Slide" Color="@Color.Primary">
-            <img class="carousel-img" src="Assets/computer.jpg" alt="Girl in a jacket" />
+        <MudCarouselItem Class="carousel-item" Transition="Transition.Slide" Color="@Color.Primary" @onclick="@(() => ShowDetails(27))">
+            <img class="carousel-img" src="Assets/speaker.jpg" alt="Girl in a jacket" />
         </MudCarouselItem>
-        <MudCarouselItem Class="carousel-item" Transition="Transition.Slide" Color="@Color.Secondary">
-            <img class="carousel-img" src="Assets/iphone.jpg" alt="sample" />
+        <MudCarouselItem Class="carousel-item" Transition="Transition.Slide" Color="@Color.Primary" @onclick="@(() => ShowDetails(28))">
+            <img class="carousel-img" src="Assets/laptop.jpg" alt="sample" />
         </MudCarouselItem>
-        <MudCarouselItem Class="carousel-item" Transition="Transition.Slide">
-            <img class="carousel-img" src="Assets/camera.jpg" alt="Girl in a jacket" />
+        <MudCarouselItem Class="carousel-item" Transition="Transition.Slide" Color="@Color.Primary" @onclick="@(() => ShowDetails(29))">
+            <img class="carousel-img" src="Assets/mouse.jpg" alt="Girl in a jacket" />
         </MudCarouselItem>
     </MudCarousel>
 </MudContainer>

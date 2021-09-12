@@ -1,7 +1,9 @@
 ﻿@using OnlineShop.Components.Products
 @using OnlineShopLibrary.Models
+@using OnlineShop.Services
 
 @inherits LayoutComponentBase
+@inject AppState AppState 
 
 <MudLayout>
     <MudAppBar>
@@ -14,8 +16,17 @@
                 <MudIcon Icon="@Icons.Material.Filled.ShoppingBasket" Color="Color.Inherit" Title="Basket"></MudIcon>
             </ActivatorContent>
             <ChildContent>
-                <MudText Class="mx-2 my-2" Typo="Typo.subtitle2">Your ordered items:</MudText>
-                <BasketContent ProductList="products"></BasketContent>
+                @if (AppState.Products.Count == 0)
+                {
+                    <MudAlert Class="mx-3 mt-1 mb-5" Severity="Severity.Info">
+                        You haven't selected any products.
+                    </MudAlert>
+                }
+                else
+                {
+                    <MudText Class="mx-2 my-2" Typo="Typo.subtitle2">Your ordered items:</MudText>
+                    <BasketContent ProductList="@AppState.Products"></BasketContent>
+                }
             </ChildContent>
         </MudMenu>
     </MudAppBar>
@@ -52,16 +63,6 @@
     void ToggleDrawerEnd(bool drawerEndOpen)
     {
         _drawerEndOpen = drawerEndOpen;
-    }
-
-    protected override void OnInitialized()
-    {
-        products.Add(new ProductModel
-        {
-            Id = 1,
-            Title = "nosaukums",
-            Description = "apraksts"
-        });
     }
 }
 

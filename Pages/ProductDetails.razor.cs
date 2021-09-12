@@ -26,5 +26,13 @@ namespace OnlineShop.Pages
             decimal? sum = price * int.Parse(ammount);
             Product.Sum = sum > 0 ? sum : null;
         }
+
+        void AddToBasket() 
+        {
+            var products = AppState.Products;
+            products.Add(Product);
+            AppState.UpdateProducts(this, products);
+            NavigationManager.NavigateTo("/success/1");
+        }
     }
 }

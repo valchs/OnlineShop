@@ -24,7 +24,7 @@ namespace OnlineShop.Pages
 
         void ShowDetails(ProductModel model)
         {
-            NavigationManager.NavigateTo("/productDetails/" + model.Id, forceLoad: true);
+            NavigationManager.NavigateTo("/productDetails/" + model.Id);
         }
     }
 }

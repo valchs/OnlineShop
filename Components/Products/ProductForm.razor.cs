@@ -22,6 +22,9 @@ namespace OnlineShop.Components.Products
             CboPaths.Add("Assets/computer.png");
             CboPaths.Add("Assets/camera.jpg");
             CboPaths.Add("Assets/iphone.jpg");
+            CboPaths.Add("Assets/laptop.jpg");
+            CboPaths.Add("Assets/mouse.jpg");
+            CboPaths.Add("Assets/speaker.jpg");
         }
 
         private async Task OnValidSubmit(EditContext context)

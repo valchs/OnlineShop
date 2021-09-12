@@ -2,15 +2,43 @@
 
 @inherits ShopBase  
 
-<MudTable Items="@ProductList" Hover="true" Breakpoint="Breakpoint.Sm">
-    <HeaderContent>
-        <MudTh>Id</MudTh>
-        <MudTh>Title</MudTh>
-        <MudTh>Description</MudTh>
-    </HeaderContent>
-    <RowTemplate>
-        <MudTd DataLabel="Id">@context.Id</MudTd>
-        <MudTd DataLabel="Title">@context.Title</MudTd>
-        <MudTd DataLabel="Description">@context.Description</MudTd>
-    </RowTemplate>
-</MudTable>
+<MudGrid Class="mb-1">
+    <MudItem xs="12">
+        <MudTable Class="mx-3" Items="@ProductList" Hover="true" Breakpoint="Breakpoint.Sm" Dense="true">
+            <ColGroup>
+            </ColGroup>
+            <HeaderContent>
+                <MudTh>Id</MudTh>
+                <MudTh>Title</MudTh>
+                <MudTh>Description</MudTh>
+                <MudTh>Quantity</MudTh>
+                <MudTh>Sum</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="Id">@context.Id</MudTd>
+                <MudTd DataLabel="Title">
+                    <div style="height:40px; overflow:hidden">
+                        @context.Title
+                    </div>
+                </MudTd>
+                <MudTd DataLabel="Description">
+                    <div style="height:40px; overflow:hidden">
+                        @if (context.Description.Length > 20)
+                        {
+                            @($"{context.Description.Substring(0, 20)}...")
+                        }
+                        else
+                        {
+                            @context.Description
+                        }
+                    </div>
+                </MudTd>
+                <MudTd DataLabel="Quantity">@context.Ammount</MudTd>
+                <MudTd DataLabel="Sum">@context.Sum</MudTd>
+            </RowTemplate>
+        </MudTable>
+    </MudItem>
+    <MudItem Class="d-flex pr-6" xs="12">
+        <MudButton Class="ml-auto" Variant="Variant.Filled" Color="Color.Primary" OnClick="BuyProduct">Buy</MudButton>
+    </MudItem>
+</MudGrid>

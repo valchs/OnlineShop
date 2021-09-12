@@ -37,7 +37,7 @@ namespace OnlineShop.Components.Products
 
         void ShowDetails()
         {
-            NavigationManager.NavigateTo("/productDetails/" + ProductModel.Id, forceLoad: true);
+            NavigationManager.NavigateTo("/productDetails/" + ProductModel.Id);
         }
     }
 }

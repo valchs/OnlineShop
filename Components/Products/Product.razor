@@ -2,7 +2,7 @@
 
 @inherits ShopBase 
 
-<MudCard>
+<MudCard Class="product-card">
     <MudCardMedia Image="@ProductModel.ImagePath" Height="200" />
     <MudCardContent>
         <MudText Typo="Typo.h5">@ProductModel.Title</MudText>
@@ -13,6 +13,6 @@
         {
             <MudButton Variant="Variant.Text" Color="Color.Error" OnClick="@DeleteProduct" Class="ml-auto">Delete</MudButton>
         }
-        <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="ShowDetails">Learn More</MudButton>
+        <MudButton Variant="Variant.Text" Color="Color.Primary" OnClick="ShowDetails">Details</MudButton>
     </MudCardActions>
 </MudCard>

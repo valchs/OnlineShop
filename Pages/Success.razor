@@ -1,0 +1,31 @@
+﻿@page "/success/{id}"
+
+<MudContainer Class="mt-16">
+    @if (id == "2")
+    {
+        <MudIcon Class="icon-center mb-3" Icon="@Icons.Material.Filled.CheckCircleOutline" Color="Color.Info" />
+    }
+    <MudAlert Class="mb-5" Severity="Severity.Success">@Message</MudAlert>
+    <MudLink Href="/">Go back</MudLink>
+</MudContainer>
+
+@code{
+    [Parameter] public string id { get; set; }
+    private string Message { get; set; }
+
+    protected override void OnInitialized()
+    {
+        switch (id)
+        {
+            case "1":
+                Message = "The product has been added to the basket!";
+                break;
+            case "2":
+                Message = "Thank you! The order has been placed successfully!";
+                break;
+            default:
+                Message = "Success!";
+                break;
+        }
+    }
+}

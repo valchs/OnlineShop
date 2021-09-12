@@ -9,7 +9,7 @@ namespace OnlineShop.Services
 {
 	public class AppState
 	{
-		public List<ProductModel> Products { get; private set; } = null;
+		public List<ProductModel> Products { get; private set; } = new();
 
 		public void UpdateProducts(ComponentBase source, List<ProductModel> products)
 		{

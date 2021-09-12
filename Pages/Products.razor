@@ -5,7 +5,8 @@
 
 @inherits ShopBase
 
-<MudContainer Class="mt-16 px-8 mobile-container" MaxWidth="MaxWidth.False" Style="min-height:80vh;">
+<MudContainer Class="mt-5 px-8 mobile-container" MaxWidth="MaxWidth.False" Style="min-height:80vh;">
+    <MudText Class="mb-3" Typo="Typo.h3" Align="Align.Center">All products</MudText>
     <MudGrid>
         @foreach (var product in ProductList)
         {

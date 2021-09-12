@@ -11,5 +11,10 @@ namespace OnlineShop.Components.Products
     public partial class BasketContent : ShopBase
     {
         [Parameter] public List<ProductModel> ProductList { get; set; }
+
+        void BuyProduct()
+        {
+            NavigationManager.NavigateTo("/success/2", forceLoad: true);
+        }
     }
 }
