@@ -1,0 +1,80 @@
+﻿@page "/about"
+
+<MudGrid Class="mx-auto px-5" Style="max-width:1000px;">
+    <MudItem xs="12">
+        <MudPaper Elevation="0" Class="py-4 flex-grow-1 mx-auto">
+            <MudText Class="mb-12" Typo="Typo.h3">Online Shop</MudText>
+            <MudText Typo="Typo.h5">Introduction</MudText>
+        </MudPaper>
+    </MudItem>
+    <MudItem xs="12" md="6">
+        <MudCard>
+            <MudCardHeader Class="pb-1">
+                <CardHeaderAvatar>
+                    <MudAvatar Style="background-color: white; border-radius: 0%;" Image="Assets/blazor.png"/>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">Blazor</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent Class="pt-0">
+                <MudText Class="mb-7">Web framework</MudText>
+                <MudText Typo="Typo.body2">This app was created using Blazor Server.</MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" md="6">
+        <MudCard>
+            <MudCardHeader Class="pb-1">
+                <CardHeaderAvatar>
+                    <MudAvatar Color="Color.Primary" Variant="Variant.Filled">
+                        <MudIcon Icon="@Icons.Custom.Brands.MudBlazor" />
+                    </MudAvatar>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">MudBlazor</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent Class="pt-0">
+                <MudText Class="mb-7">Material design library for Blazor</MudText>
+                <MudText Typo="Typo.body2">Many UI components in this project are from MudBlazor library.</MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" md="6">
+        <MudCard>
+            <MudCardHeader Class="pb-1">
+                <CardHeaderAvatar>
+                    <MudAvatar Color="Color.Primary" Variant="Variant.Filled">
+                        <MudIcon Icon="@Icons.Filled.Storage" />
+                    </MudAvatar>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">SQL Server</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent Class="pt-0">
+                <MudText Class="mb-7">Database</MudText>
+                <MudText Typo="Typo.body2">Data is stored in SQL Server database.</MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12" md="6">
+        <MudCard>
+            <MudCardHeader Class="pb-1">
+                <CardHeaderAvatar>
+                    <MudAvatar Color="Color.Primary" Variant="Variant.Filled">
+                        <MudIcon Icon="@Icons.Custom.Brands.MicrosoftAzure" />
+                    </MudAvatar>
+                </CardHeaderAvatar>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">Azure</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent Class="pt-0">
+                <MudText Class="mb-7">Cloud computing service</MudText>
+                <MudText Typo="Typo.body2">Website and database is hosted on Azure.</MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>

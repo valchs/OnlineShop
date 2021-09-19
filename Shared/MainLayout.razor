@@ -29,8 +29,12 @@
                 }
             </ChildContent>
         </MudMenu>
+        <MudIconButton Class="ml-4" Icon="@Icons.Material.Filled.Brightness6" Color="Color.Inherit" OnClick="@((e) => DarkMode())"></MudIconButton>
     </MudAppBar>
     <MudDrawer @bind-Open="@_drawerOpen">
+        <MudDrawerHeader>
+            <MudText Typo="Typo.h6">Online Shop</MudText>
+        </MudDrawerHeader>
         <NavMenu />
     </MudDrawer>
     <MudDrawer @bind-Open="@_drawerEndOpen" Anchor="Anchor.End" Elevation="3" Variant="@DrawerVariant.Temporary">
@@ -55,6 +59,11 @@
     bool _drawerEndOpen = false;
     public List<ProductModel> products { get; set; } = new();
 
+    protected override void OnInitialized()
+    {
+        currentTheme = defaultTheme;
+    }
+
     void DrawerToggle()
     {
         _drawerOpen = !_drawerOpen;
@@ -64,8 +73,60 @@
     {
         _drawerEndOpen = drawerEndOpen;
     }
+
+    void DarkMode()
+    {
+        if (currentTheme == defaultTheme)
+        {
+            currentTheme = darkTheme;
+        }
+        else
+        {
+            currentTheme = defaultTheme;
+        }
+    }
+
+    MudTheme currentTheme = new MudTheme();
+    MudTheme defaultTheme = new MudTheme()
+    {
+        Palette = new Palette()
+        {
+            Black = "#272c34",
+            Primary = "#558B2F",
+            Secondary = "#DCEDC8",
+            AppbarBackground = "#7CB342",
+        }
+    };
+
+    MudTheme darkTheme = new MudTheme()
+    {
+        Palette = new Palette()
+        {
+            Black = "#27272f",
+            Background = "#32333d",
+            BackgroundGrey = "#27272f",
+            Surface = "#373740",
+            DrawerBackground = "#27272f",
+            DrawerText = "rgba(255,255,255, 0.50)",
+            DrawerIcon = "rgba(255,255,255, 0.50)",
+            AppbarBackground = "#27272f",
+            AppbarText = "rgba(255,255,255, 0.70)",
+            TextPrimary = "rgba(255,255,255, 0.70)",
+            TextSecondary = "rgba(255,255,255, 0.50)",
+            ActionDefault = "#adadb1",
+            ActionDisabled = "rgba(255,255,255, 0.26)",
+            ActionDisabledBackground = "rgba(255,255,255, 0.12)",
+            Divider = "rgba(255,255,255, 0.12)",
+            DividerLight = "rgba(255,255,255, 0.06)",
+            TableLines = "rgba(255,255,255, 0.12)",
+            LinesDefault = "rgba(255,255,255, 0.12)",
+            LinesInputs = "rgba(255,255,255, 0.3)",
+            TextDisabled = "rgba(255,255,255, 0.2)",
+            Primary = "#1B5E20"
+        }
+    };
 }
 
-<MudThemeProvider />
+<MudThemeProvider Theme="currentTheme" />
 <MudDialogProvider />
 <MudSnackbarProvider />
