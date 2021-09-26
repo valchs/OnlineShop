@@ -17,7 +17,7 @@
                     <MudTextField @bind-Value="Product.Price" Label="Price" ReadOnly="true" Variant="Variant.Filled" Format="F2" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.AttachMoney" />
                 </MudItem>
                 <MudItem lg="6" md="12" xs="6">
-                    <MudNumericField @bind-Value="Product.Ammount" Label="Daudzums" Variant="Variant.Text" TextChanged="ValueChanged" />
+                    <MudNumericField @bind-Value="Product.Ammount" Label="Daudzums" Variant="Variant.Text" TextChanged="ValueChanged" Min="0" />
                 </MudItem>
                 <MudHidden Breakpoint="Breakpoint.Md">
                     <MudItem xs="8"></MudItem>
@@ -35,7 +35,7 @@
                     <MudItem xs="8"></MudItem>
                 </MudHidden>
                 <MudItem Class="d-flex justify-end" lg="2" md="4" xs="2">
-                    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="AddToBasket">Add</MudButton>
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="AddToBasket" Disabled="Product.Ammount == 0">Add</MudButton>
                 </MudItem>
             </MudGrid>
         </MudItem>

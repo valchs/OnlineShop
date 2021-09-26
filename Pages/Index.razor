@@ -1,11 +1,22 @@
 ﻿@page "/"
 
 @using OnlineShop.BusinessLogic
+@using OnlineShop.Models 
 
 @inherits ShopBase
 
 <MudContainer MaxWidth="MaxWidth.False">
-    <MudText Class="mt-5 mb-3" Typo="Typo.h3" Align="Align.Center">Online Shop</MudText>
+    <MudGrid Class="mx-auto" Style="max-width: 1050px;" Spacing="0">
+        <MudItem Class="d-table" xs="12" sm="3">
+            <MudText Typo="Typo.h5" Color="Color.Primary" Align="Align.Center" Class="mb-4 d-table-cell" Style="text-align: start; vertical-align: middle;">Search products</MudText>
+        </MudItem>
+        <MudItem xs="12" sm="9">
+            <MudAutocomplete Class="mb-4 pr-0" T="ItemModel" Label="Product name" Value="value" SearchFunc="@Search" ToStringFunc="@(e=> e == null ? null : $"{e.Title}")"
+                             ResetValueOnEmptyText="false"
+                             CoerceText="true" CoerceValue="false"
+                             AdornmentIcon="@Icons.Material.Filled.Search" AdornmentColor="Color.Primary" ValueChanged="ProductChanged" />
+        </MudItem>
+    </MudGrid>
     <MudCarousel Class="mx-auto carousel-container" ShowArrows="true" ShowDelimiters="true" AutoCycle="true" TData="object">
         <MudCarouselItem Class="carousel-item" Transition="Transition.Slide" Color="@Color.Primary" @onclick="@(() => ShowDetails(27))">
             <img class="carousel-img" src="Assets/speaker.jpg" alt="Girl in a jacket" />
